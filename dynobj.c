@@ -5,8 +5,7 @@
 
 typedef struct dynobj_slot {
   struct dynobj_slot *next_slot;
-
-  const char *name;
+  char *name;
   dynobj_slot_value value;
 } dynobj_slot;
 
@@ -30,6 +29,7 @@ void dynobj_destroy(dynobj *obj) {
   dynobj_slot *slot = obj->slots;
   while (slot != NULL) {
     dynobj_slot *next = slot->next_slot;
+    free(slot->name);
     free(slot);
     slot = next;
   }
