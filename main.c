@@ -27,7 +27,7 @@ void test_simple_inheritance(void) {
 }
 
 DYNOBJ_DEFINE_SIMPLE_MESSAGE(counter_increment) {
-		dynobj_set_int_slot(self, "count", dynobj_get_int_slot(self, "count") + 1);
+  dynobj_set_int_slot(self, "count", dynobj_get_int_slot(self, "count") + 1);
 }
 
 void test_simple_message(void) {
