@@ -4,7 +4,7 @@
 
 Prototypical object system in C. Not really that useful.
 
-```
+```c
 #include <stdio.h>
 #include "dynobj.h"
 
