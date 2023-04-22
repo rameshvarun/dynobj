@@ -21,7 +21,7 @@ clean:
 	rm dynobj_test
 
 format:
-	clang-format -i dynobj.c dynobj.h
+	clang-format -i dynobj.c dynobj.h main.c
 
 test: dynobj_test
 	./dynobj_test

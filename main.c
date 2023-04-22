@@ -1,6 +1,6 @@
-#include "stdio.h"
 #include "acutest/include/acutest.h"
 #include "dynobj.h"
+#include "stdio.h"
 
 void test_simple_object(void) {
   dynobj *simple_object = dynobj_new();
@@ -33,7 +33,7 @@ DYNOBJ_DEFINE_SIMPLE_MESSAGE(counter_increment) {
 void test_simple_message(void) {
   dynobj *counter_proto = dynobj_new();
   dynobj_set_int_slot(counter_proto, "count", 0);
-	dynobj_set_ptr_slot(counter_proto, "increment", counter_increment);
+  dynobj_set_ptr_slot(counter_proto, "increment", counter_increment);
 
   dynobj *a = dynobj_extend(counter_proto);
   dynobj *b = dynobj_extend(counter_proto);
@@ -41,14 +41,14 @@ void test_simple_message(void) {
   TEST_CHECK(dynobj_get_int_slot(a, "count") == 0);
   TEST_CHECK(dynobj_get_int_slot(b, "count") == 0);
 
-	DYNOBJ_SEND_SIMPLE_MESSAGE(a, "increment");
-	DYNOBJ_SEND_SIMPLE_MESSAGE(a, "increment");
-	DYNOBJ_SEND_SIMPLE_MESSAGE(a, "increment");
+  DYNOBJ_SEND_SIMPLE_MESSAGE(a, "increment");
+  DYNOBJ_SEND_SIMPLE_MESSAGE(a, "increment");
+  DYNOBJ_SEND_SIMPLE_MESSAGE(a, "increment");
 
-	DYNOBJ_SEND_SIMPLE_MESSAGE(b, "increment");
-	DYNOBJ_SEND_SIMPLE_MESSAGE(b, "increment");
+  DYNOBJ_SEND_SIMPLE_MESSAGE(b, "increment");
+  DYNOBJ_SEND_SIMPLE_MESSAGE(b, "increment");
 
-	TEST_CHECK(dynobj_get_int_slot(a, "count") == 3);
+  TEST_CHECK(dynobj_get_int_slot(a, "count") == 3);
   TEST_CHECK(dynobj_get_int_slot(b, "count") == 2);
 
   dynobj_destroy(a);

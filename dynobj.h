@@ -72,7 +72,10 @@ CREATE_TYPED_SLOT_HELPERS(DYNOBJ_INT_SLOT, int, int, int_value)
 CREATE_TYPED_SLOT_HELPERS(DYNOBJ_OBJ_SLOT, obj, dynobj *, obj_value)
 CREATE_TYPED_SLOT_HELPERS(DYNOBJ_POINTER_SLOT, ptr, void *, ptr_value)
 
-#define DYNOBJ_DEFINE_SIMPLE_MESSAGE(MESSAGE_NAME) void MESSAGE_NAME(dynobj* self) 
+#define DYNOBJ_DEFINE_SIMPLE_MESSAGE(MESSAGE_NAME) void MESSAGE_NAME(dynobj *self)
 
-#define DYNOBJ_SEND_SIMPLE_MESSAGE(OBJ, MESSAGE_NAME)                   \
-  ({ void(*func_ptr)(dynobj*) = dynobj_get_ptr_slot(OBJ, MESSAGE_NAME); func_ptr(OBJ); })
+#define DYNOBJ_SEND_SIMPLE_MESSAGE(OBJ, MESSAGE_NAME)                                              \
+  ({                                                                                               \
+    void (*func_ptr)(dynobj *) = dynobj_get_ptr_slot(OBJ, MESSAGE_NAME);                           \
+    func_ptr(OBJ);                                                                                 \
+  })
