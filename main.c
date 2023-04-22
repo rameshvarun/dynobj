@@ -1,5 +1,5 @@
 #include "stdio.h"
-#include "cutest.h"
+#include "acutest/include/acutest.h"
 #include "dynobj.h"
 
 void test_simple_object(void) {
