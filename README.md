@@ -4,6 +4,8 @@
 
 Prototypical object system in C. Not really that useful.
 
+## Example Usage
+
 ```c
 #include <stdio.h>
 #include "dynobj.h"
