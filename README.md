@@ -30,9 +30,8 @@ int main() {
   DYNOBJ_SEND_SIMPLE_MESSAGE(b, "increment");
   DYNOBJ_SEND_SIMPLE_MESSAGE(b, "increment");
 
-  printf("Counter A = %d, Counter B = %d\n",
-    dynobj_get_int_slot(a, "count"),
-    dynobj_get_int_slot(b, "count"));
+  printf("Counter A = %d, Counter B = %d\n", dynobj_get_int_slot(a, "count"),
+         dynobj_get_int_slot(b, "count"));
 
   dynobj_destroy(a);
   dynobj_destroy(b);
